@@ -16,6 +16,7 @@ header, footer{
     background-color: skyblue;
 }
 main{
+    
  position: relative;
     width: 100%;
     height: 600vh;
@@ -35,7 +36,7 @@ top: 0;
     justify-content: center;
     align-items: center;
     padding-top: 100px;
-    margin-bottom: -150px;
+    margin-bottom: -290px;
    
 }
 .intro h1{
@@ -43,9 +44,10 @@ top: 0;
 }
 
 .machine{
-    width: 100%;
     display: flex;
-     justify-content: center;
+    justify-content: center;
+    width: 50%;
+    margin: 10rem;
 
        
 }
@@ -54,8 +56,8 @@ top: 0;
 
     position:absolute;
 
-    width:700px;
-    height:600px;
+    width:600px;
+    height:700px;
 
     border-radius:50%;
 
@@ -75,7 +77,14 @@ top: 0;
 
     z-index:-1;
 }
-
+.center{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 .machine img{
     width: 300px;
     height: 650px;
@@ -83,8 +92,8 @@ top: 0;
 
 .content{
     position:absolute;
-    width:35%;
-    top:20%;
+    width:50%;
+    top:30%;
     opacity:0;
     transform:translateY(80px);
     filter:blur(8px);
@@ -101,10 +110,11 @@ top: 0;
 
 .left1,
 .left2{
-    right:0;
-    margin-right: 70px;
+    right:5%;
+   
 }
 .right1,
 .right2{
-    margin-left: 70px;
+    left:5%;
+   
 }
