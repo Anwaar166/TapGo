@@ -16,9 +16,17 @@ header, footer{
     background-color: skyblue;
 }
 main{
-    position: relative;
+ position: relative;
     width: 100%;
-    height:300vh;
+    height: 500vh;
+   
+}
+.scroll{
+position: sticky;
+top: 0;
+ height:100vh;
+ width: 100%;
+ z-index: 999 ;
 }
 .intro{
     width: 100%;
@@ -26,25 +34,27 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: -200px;
+    margin-bottom: -120px;
+     transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+.intro.hide{
+    opacity:0;
+    transform:translateY(-60px);
 }
 
 .machine{
-    position: sticky;
-    top: 0;
     width: 100%;
     display: flex;
      justify-content: center;
-      transform:
-        perspective(1600px)
-        rotateX(50deg);
-    transition:1s ease;
+
        
 }
 
 .machine img{
-    width: 450px;
-    height: 800px;
+    width: 300px;
+    height: 650px;
 }
 
 .content{
@@ -56,89 +66,25 @@ main{
     padding: .5rem;
     width: 35%;
 
+    opacity: 0;
+    transform: translateY(80px) scale(.95);
+    filter: blur(10px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        filter .7s ease;
 }
 .right1, .left1,.right2, .left2{
-     top:10%;
+     top:20%;
+     opacity: 0;
 }
 .left1, .left2{
 right: 0;
 }
-@keyframes moveRight {
-
-    from {
-        transform:
-            perspective(1600px)
-            rotateX(50deg)
-            translateX(0)
-            scale(1);
-    }
-
-    to {
-        transform:
-            perspective(1600px)
-            rotateX(0deg)
-            translateX(250px)
-            scale(0.67);
-    }
-
-}
-
-@keyframes moveLeft {
-
-    from {
-        transform:
-            perspective(1600px)
-            rotateX(0deg)
-            translateX(250px)
-            scale(0.67);
-    }
-
-    to {
-        transform:
-            perspective(1600px)
-            rotateX(0deg)
-            translateX(-250px)
-            scale(0.67);
-    }
-
-}
-@keyframes moveRight2 {
-
-    from {
-        transform:
-             perspective(1600px)
-            rotateX(0deg)
-            translateX(-250px)
-            scale(0.67);
-    }
-
-    to {
-        transform:
-            perspective(1600px)
-            rotateX(0deg)
-            translateX(250px)
-            scale(0.67);
-    }
-
-}
-
-@keyframes moveLeft2 {
-
-    from {
-        transform:
-            perspective(1600px)
-            rotateX(0deg)
-            translateX(250px)
-            scale(0.67);
-    }
-
-    to {
-        transform:
-            perspective(1600px)
-            rotateX(0deg)
-            translateX(-250px)
-            scale(0.67);
-    }
-
+.show{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
