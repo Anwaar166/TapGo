@@ -11,30 +11,72 @@ const right1 = document.querySelector(".right1");
 const left1 = document.querySelector(".left1");
 const right2 = document.querySelector(".right2");
 const left2 = document.querySelector(".left2");
+
+// ==========================================
+// Initial States
+// ==========================================
 machine.style.transform = `
     perspective(1600px)
     rotateX(50deg)
     translateY(0)
     translateX(0)
 `;
+intro.style.opacity = 1;
+intro.style.transform = "translateY(0)";
+intro.style.filter = "blur(0)";
+
+right1.style.opacity = 0;
+right1.style.transform = "translateY(80px)";
+right1.style.filter = "blur(8px)";
+
+left1.style.opacity = 0;
+left1.style.transform = "translateY(80px)";
+left1.style.filter = "blur(8px)";
+
+right2.style.opacity = 0;
+right2.style.transform = "translateY(80px)";
+right2.style.filter = "blur(8px)";
+
+left2.style.opacity = 0;
+left2.style.transform = "translateY(80px)";
+left2.style.filter = "blur(8px)";
 // ==========================================
 // Scroll Event
 // ==========================================
 
 window.addEventListener("scroll", () => {
 
-    const rect = storySection.getBoundingClientRect();
-
-    // Start animation only when the section reaches the navbar
-    // Change 80 to your navbar height
-    if (rect.top <= 100) {
-
         updateStory();
-
-    }
-
+    
 });
 
+function animateContent(element, progress){
+
+    progress = Math.max(0, Math.min(progress,1));
+
+    element.style.opacity = progress;
+
+    element.style.transform =
+        `translateY(${80-(80*progress)}px)`;
+
+    element.style.filter =
+        `blur(${8-(8*progress)}px)`;
+
+}
+
+function hideContent(element,progress){
+
+    progress = Math.max(0, Math.min(progress,1));
+
+    element.style.opacity = 1-progress;
+
+    element.style.transform =
+        `translateY(${-80*progress}px)`;
+
+    element.style.filter =
+        `blur(${8*progress}px)`;
+
+}
 // ==========================================
 // Story Function
 // ==========================================
@@ -58,11 +100,7 @@ function updateStory() {
 
 
 
-    // ==========================================
-    // Scene 1 (0% - 20%)
-    // ==========================================
-
-    // ==========================================
+// ==========================================
 // Scene 1 (0% - 25%)
 // ==========================================
 
@@ -81,9 +119,11 @@ if (progress <= 0.25) {
         translateY(0)
         translateX(${translate}px)
     `;
+    hideContent(intro, p);
 
-     intro.classList.add("hide");
-showContent(right1);
+animateContent(right1, p);
+
+    
 
    
 }
@@ -105,8 +145,10 @@ else if (progress <= 0.50) {
         perspective(1600px)
         rotateX(0deg)
         translateX(${translate}px)
-       
     `;
+    hideContent(right1, p);
+
+animateContent(left1, p);
 
   
 }
@@ -122,13 +164,15 @@ else if (progress <= 0.75) {
     p = Math.max(0, Math.min(p, 1));
 
     const translate = -250 + (500 * p);
-
     machine.style.transform = `
         perspective(1600px)
         rotateX(0deg)
         translateX(${translate}px)
         
     `;
+    hideContent(left1, p);
+
+animateContent(right2, p);
 
    
 }
@@ -150,6 +194,9 @@ else {
         translateX(${translate}px)
         
     `;
+    hideContent(right2, p);
+
+animateContent(left2, p);
 
     
 }
