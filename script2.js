@@ -18,23 +18,17 @@ const left2 = document.querySelector(".left2");
 machine.style.transform = `
     perspective(1600px)
     rotateX(50deg)
-    translateY(0)
-    translateX(0)
+
 `;
 intro.style.opacity = 1;
-intro.style.transform = "translateY(0)";
 
 right1.style.opacity = 0;
-right1.style.transform = "translateY(80px)";
 
 left1.style.opacity = 0;
-left1.style.transform = "translateY(80px)";
 
 right2.style.opacity = 0;
-right2.style.transform = "translateY(80px)";
 
 left2.style.opacity = 0;
-left2.style.transform = "translateY(80px)";
 // ==========================================
 // Scroll Event
 // ==========================================
@@ -51,8 +45,6 @@ function animateContent(element, progress) {
 
     element.style.opacity = progress;
 
-    element.style.transform =
-        `translateY(${1200 - (1200 * progress)}px)`;
 
 
 }
@@ -62,15 +54,6 @@ function hideContent(element, progress) {
     progress = Math.max(0, Math.min(progress, 1));
 
     element.style.opacity = 1 - progress;
-
-}
-function hideContent2(element,progress){
- progress = Math.max(0, Math.min(progress, 1));
- console.log(progress)
-
-    element.style.opacity =1- progress;
-element.style.transform =
-    `translateY(${-400 * progress}px)`;
 
 }
 
@@ -83,7 +66,7 @@ function updateStory() {
     // Calculate section position
     const rect = storySection.getBoundingClientRect();
 
-    const sectionTop = window.scrollY + rect.top;
+    const sectionTop = window.scrollY + rect.top+100;
 
     // Scroll amount inside this section
     const scrollInside = window.scrollY - sectionTop;
@@ -106,16 +89,13 @@ function updateStory() {
         let p = (progress) / 0.1;
 
         p = Math.max(0, Math.min(p, 1));
-
         const rotate = 50 - (50 * p);
-        const translate = 300* p;
         // const scale =1.20-(.5*p);
 
         machine.style.transform = `
         perspective(1600px)
         rotateX(${rotate}deg)
-        translateY(0)
-        translateX(${translate}px)
+    
     `;
         hideContent(intro, p);
 
@@ -143,9 +123,8 @@ function updateStory() {
         machine.style.transform = `
         perspective(1600px)
         rotateX(0deg)
-        translateX(${translate}px)
     `;
-        hideContent2(right1, p);
+        hideContent(right1, p);
 
         animateContent(left1, p);
 
@@ -166,10 +145,9 @@ function updateStory() {
         machine.style.transform = `
         perspective(1600px)
         rotateX(0deg)
-        translateX(${translate}px)
         
     `;
-        hideContent2(left1, p);
+        hideContent(left1, p);
 
         animateContent(right2, p);
 
@@ -190,10 +168,9 @@ function updateStory() {
         machine.style.transform = `
         perspective(1600px)
         rotateX(0deg)
-        translateX(${translate}px)
         
     `;
-        hideContent2(right2, p);
+        hideContent(right2, p);
 
         animateContent(left2, p);
 
