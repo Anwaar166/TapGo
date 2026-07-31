@@ -198,19 +198,13 @@ top: 0;
 }
 
 @media (max-width: 420px){
-    .machine img{
-        width: 300px;
-        height: 500px;
-
-    }
-
+    
     .left1,
 .left2,
 .right1,
 .right2{
     left:50%;
-    transform:translate(-50%);
-    top: 62%;
-    b
+    transform:translateX(-50%);
+  top: calc(50% + 10px);
 }
 } 
