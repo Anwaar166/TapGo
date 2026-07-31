@@ -162,7 +162,7 @@ top: 0;
 .right2{
     left:50%;
     transform:translate(-50%);
-    top: 64%;
+    top: 50%;
 }
     .machine img{
         width: 200px;
@@ -196,3 +196,21 @@ top: 0;
         padding: 1rem;
     }
 }
+
+@media (max-width: 420px){
+    .machine img{
+        width: 300px;
+        height: 500px;
+
+    }
+
+    .left1,
+.left2,
+.right1,
+.right2{
+    left:50%;
+    transform:translate(-50%);
+    top: 62%;
+    b
+}
+} 
