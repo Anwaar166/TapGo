@@ -210,7 +210,7 @@ top: 0;
 .right2{
     left:50%;
     transform:translateX(-50%);
-  top: calc(50% + 10px);
+  top: calc(55% + 10px);
 }
 } 
 
@@ -226,7 +226,7 @@ top: 0;
 .right2{
     left:50%;
     transform:translateX(-50%);
- top: 60%;
+ top: 65%;
 }
 } 
 
