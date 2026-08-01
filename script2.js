@@ -181,5 +181,15 @@ function updateStory() {
     // ==========================================
 
 
+const students=[
 
-}
+"Ali",
+
+"Ahmed",
+
+"Bilal"
+
+];
+}element.map((fruits)=>{
+
+})
